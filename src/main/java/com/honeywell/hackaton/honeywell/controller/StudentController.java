@@ -1,5 +1,12 @@
 package com.honeywell.hackaton.honeywell.controller;
 
+import javax.print.attribute.standard.Media;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.POST;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.MediaType;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,9 +25,10 @@ public class StudentController {
 	
 	StudentService studentService;
 	
-	@PostMapping
-	@RequestMapping("saveStudentDetails")
-	public String saveStudentDetails( @RequestBody StudentRegistrationVO studentRegistrationVO){
+	
+	@PostMapping(path = "/saveStudentDetails", consumes = MediaType.APPLICATION_JSON)
+	public String saveStudentDetails(@RequestBody  StudentRegistrationVO studentRegistrationVO){
+		 //StudentRegistrationVO studentRegistrationVO=new StudentRegistrationVO();
 		try {
 			return studentService.saveStudentDetails(studentRegistrationVO);
 		} catch (Exception e) {
@@ -30,8 +38,8 @@ public class StudentController {
 		}
 	}
 
-	@PostMapping
-	@RequestMapping("validateUserLogin")
+	
+	@PostMapping(path = "/validateUserLogin", consumes = MediaType.APPLICATION_JSON)
 	public String validateUserLogin(@RequestBody StudentRegistrationVO studentRegistrationVO){
 		
 	

@@ -1,15 +1,11 @@
 package com.honeywell.hackaton.honeywell.vo;
 
-import java.io.Serializable;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.honeywell.hackaton.honeywell.entity.StudentEntity;
+
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class StudentRegistrationVO {
 	
-	/**
-	 * 
-	 */
+	
 	
 
 	private String userName;
@@ -20,14 +16,14 @@ public class StudentRegistrationVO {
 	
 	private String role;
 	
-	/*public StudentRegistrationVO(StudentEntity studentRegistrationEntity) {
-		this.setAge(studentRegistrationEntity.getAge());
-		this.setNameOfStudent(studentRegistrationEntity.getNameOfStudent());
-		this.setPassword(studentRegistrationEntity.getPassword());
-		this.setRole(studentRegistrationEntity.getRole());
-		this.setUserName(studentRegistrationEntity.getUserName());
-	} */
 	
+	
+
+	@Override
+	public String toString() {
+		return "StudentRegistrationVO [userName=" + userName + ", password=" + password + ", nameOfStudent="
+				+ nameOfStudent + ", age=" + age + ", role=" + role + "]";
+	}
 
 	public String getUserName() {
 		return userName;
